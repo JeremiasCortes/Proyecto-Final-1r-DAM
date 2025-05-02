@@ -1,34 +1,60 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
+import smtplib
+from email.message import EmailMessage
 
 app = Flask(__name__)
+app.secret_key = 'clave_segura'
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///ElementalEsplay.db'
+
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name_user = db.Column(db.String(100), unique=True, nullable=False)
-    nombre = db.Column(db.String(100), nullable=False)
-    apellido1 = db.Column(db.String(100), nullable=False)
-    apellido2 = db.Column(db.String(100), nullable=False)
-    email = db.Column(db.String(100), unique=True, nullable=False)
+    name_user = db.Column(db.String(16), unique=True, nullable=False)
+    nombre = db.Column(db.String(16), nullable=False)
+    apellido1 = db.Column(db.String(16), nullable=False)
+    apellido2 = db.Column(db.String(16), nullable=False)
+    email = db.Column(db.String(64), unique=True, nullable=False)
     dni = db.Column(db.String(9), unique=True, nullable=False)
     contraseña=db.Column(db.String(200), nullable=False)
-    monedero = db.Column(db.Numeric(20, 2), nullable=False)
+    monedero = db.Column(db.Numeric(8, 2), nullable=False)
+
 
 error_login=False
 error_register=0
+EMAIL_ORIGEN = 'elementalesplay@gmail.com'
+EMAIL_PASSWORD = 'ubhkuplxwcesryhw'
+SMTP_SERVER = 'smtp.gmail.com'
+SMTP_PORT = 587
 
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def index():
     global error_login
     global error_register
     error_login = False
     error_register=0
+    if request.method == 'POST':
+        nombre = request.form['nombre']
+        destino = request.form['email']
+        mensaje = request.form['mensaje']
+
+        email = EmailMessage()
+        email['Subject'] = 'Gracias por contactarnos'
+        email['From'] = EMAIL_ORIGEN
+        email['To'] = destino
+        email.set_content(f"Hola {nombre},\n\nGracias por tu mensaje:\n\n{mensaje}\n\nTe responderemos pronto.")
+
+
+        with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as smtp:
+            smtp.starttls()
+            smtp.login(EMAIL_ORIGEN, EMAIL_PASSWORD)
+            smtp.send_message(email)
+
     return render_template('index.html', users=User.query.all())
 
 @app.route('/add_user', methods=['POST'])
@@ -63,6 +89,10 @@ def comprobador_user():
         return redirect('/')
     error_login = True
     return redirect('/login')
+
+@app.route('/contacto')
+def contacto():
+    return render_template('contacto.html')
 
 
 

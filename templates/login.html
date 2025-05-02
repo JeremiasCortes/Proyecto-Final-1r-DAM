@@ -22,7 +22,7 @@
         <form class="space-y-4" action="/comprobar_user" method="POST">
             <div>
                 <label class="block text-sm font-medium">Nombre de usuario</label>
-                <input type="text" name="name_user" required class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-400" />
+                <input type="text" name="name_user" maxlength="16" required class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-400" />
             </div>
 
             <div>
@@ -30,16 +30,8 @@
                 <input type="password" name="contraseña" maxlength="8" required class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-400" />
             </div>
 
-            <div class="flex items-center">
-                <input type="checkbox" class="mr-2" id="remember" />
-                <label for="remember" class="text-sm">Remember Me</label>
-            </div>
+            <button class="w-full bg-orange-500 text-white py-2 rounded-md hover:bg-orange-600 transition">Iniciar sesion</button>
 
-            <button class="w-full bg-orange-500 text-white py-2 rounded-md hover:bg-orange-600 transition">Log In</button>
-
-            <div class="text-right mt-2">
-                <a href="#" class="text-sm text-orange-500 hover:underline">Forgot Your Password?</a>
-            </div>
         </form>
 
         <p class="text-xs text-gray-500 mt-6">© 2019 Elemental Esplay, LLC. All rights reserved.</p>
