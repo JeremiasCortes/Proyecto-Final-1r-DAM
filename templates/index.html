@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elemental Esplay</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <header class="bg-red-800 text-white px-8 py-4 flex justify-between items-center">
+        <div class="flex items-center space-x-3">
+            <h1 class="text-xl font-bold">Elemental Esplay</h1>
+        </div>
+        <nav class="flex space-x-8">
+            <a href="/contacto" class="text-white font-medium hover:underline">Contacto</a>
+
+            <a href="/register" class="text-white font-medium hover:underline">Registrarse</a>
+
+            <a href="/login" class="text-white font-medium hover:underline">Iniciar sesión</a>
+        </nav>
+    </header>
+
+    <h1>Lista de Users</h1>
+    <br>
+
+    {% for user in users %}
+        <p>ID: {{ user.id }}</p>
+        <p>Nombre de usuario: {{ user.name_user }}</p>
+        <p>Nombre: {{ user.nombre }}</p>
+        <p>Apellido 1: {{ user.apellido1 }}</p>
+        <p>Apellido 2: {{ user.apellido2 }}</p>
+        <p>Email: {{ user.email }}</p>
+        <p>DNI: {{ user.dni }}</p>
+        <p>Monedero: {{ user.monedero }}</p>
+    {% endfor %}
+</body>
+</html>
