@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elemental Club</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="../static/img/logo.png" type="image/png" />
+  <style>
+    @keyframes changeBackground {
+      0% { background-image: url('../static/img/todas/excursion.png'); }
+      20% { background-image: url('../static/img/todas/fogata.png'); }
+      40% { background-image: url('../static/img/todas/juego_agua.png'); }
+      60% { background-image: url('../static/img/todas/cometas.png'); }
+      80% { background-image: url('../static/img/todas/natacion.png'); }
+      100% { background-image: url('../static/img/todas/volar.png'); }
+    }
+
+    .hero {
+      background-size: cover;
+      background-position: center;
+      animation: changeBackground 30s infinite;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+  <!-- NAVBAR -->
+  <header class="bg-white shadow-md fixed top-0 left-0 w-full z-50">
+    <div class="max-w-full mx-auto px-8 py-6 flex items-center justify-between">
+      <a href="index.html" class="flex items-center space-x-3">
+        <img src="../static/img/logo.png" alt="Logo Club de Esplai" class="h-10 w-10 object-contain">
+        <h1 class="text-2xl font-bold text-blue-700">Elemental Club</h1>
+      </a>
+      <nav class="flex space-x-6">
+        <a href="#gremios" class="text-gray-700 hover:text-blue-600 transition">Gremios</a>
+        <a href="#actividades" class="text-gray-700 hover:text-blue-600 transition">Actividades</a>
+        <a href="#contacto" class="text-gray-700 hover:text-blue-600 transition">Contacto</a>
+      </nav>
+      <a href="/login" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full shadow transition duration-300">
+        Iniciar sesión / Registrarse
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="relative h-[80vh] flex items-center justify-center hero">
+    <div class="bg-blue-900 bg-opacity-60 p-6 rounded-xl text-center text-white">
+      <h2 class="text-5xl font-bold mb-4">¡Bienvenido al Elemental Club!</h2>
+      <p class="text-xl">Un lugar para aprender, jugar y crecer juntos. ¡Únete a la aventura!</p>
+    </div>
+  </section>
+
+  <!-- ELEMENTAL CLUB -->
+  <section class="py-16 bg-blue-50">
+    <div class="max-w-4xl mx-auto text-center">
+      <h3 class="text-3xl font-bold mb-4 text-blue-900">Elemental Club</h3>
+      <p class="text-lg text-gray-700">
+        En el <strong>Elemental Club</strong>, ofrecemos un espacio único donde los niños y jóvenes pueden explorar los
+        cuatro elementos de la naturaleza (Agua, Aire, Fuego, Tierra). A través de actividades creativas, deportivas y
+        educativas, buscamos fomentar el trabajo en equipo, el respeto por el medio ambiente y el desarrollo personal.
+      </p>
+    </div>
+  </section>
+
+  <!-- GREMIOS -->
+  <section id="gremios" class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <h3 class="text-3xl font-bold mb-10 text-center text-gray-800">Nuestros Gremios</h3>
+      <div class="space-y-16">
+
+        <!-- Gremio del Agua -->
+        <div class="flex flex-col md:flex-row items-center justify-between gap-10">
+          <div class="w-full md:w-1/2 text-left">
+            <h4 class="text-2xl font-semibold text-blue-700">
+              <a href="agua.html" class="hover:underline">💧 Gremio del Agua</a>
+            </h4>
+            <p class="text-lg text-blue-800 mt-4">Fluye con la creatividad y la calma del agua. El gremio que te conecta con la serenidad y fluidez de la vida.</p>
+          </div>
+          <div class="w-full md:w-1/2">
+            <a href="agua.html">
+              <img src="../static/img/elementos/agua.png" alt="Gremio del Agua" class="w-full h-72 object-cover rounded-xl transform transition-transform duration-300 hover:scale-105">
+            </a>
+          </div>
+        </div>
+
+        <!-- Gremio del Aire -->
+        <div class="flex flex-col md:flex-row-reverse items-center justify-between gap-10">
+          <div class="w-full md:w-1/2 text-left">
+            <h4 class="text-2xl font-semibold text-sky-700">
+              <a href="aire.html" class="hover:underline">💨 Gremio del Aire</a>
+            </h4>
+            <p class="text-lg text-sky-800 mt-4">Ligero y libre, siempre en movimiento. El gremio que te lleva a las alturas, explorando la libertad en su máxima expresión.</p>
+          </div>
+          <div class="w-full md:w-1/2">
+            <a href="aire.html">
+              <img src="../static/img/elementos/aire.png" alt="Gremio del Aire" class="w-full h-72 object-cover rounded-xl transform transition-transform duration-300 hover:scale-105">
+            </a>
+          </div>
+        </div>
+
+        <!-- Gremio del Fuego -->
+        <div class="flex flex-col md:flex-row items-center justify-between gap-10">
+          <div class="w-full md:w-1/2 text-left">
+            <h4 class="text-2xl font-semibold text-red-700">
+              <a href="fuego.html" class="hover:underline">🔥 Gremio del Fuego</a>
+            </h4>
+            <p class="text-lg text-red-800 mt-4">Pasión, energía y acción en cada paso. El gremio que te inspira a vivir con intensidad, transformando cada momento.</p>
+          </div>
+          <div class="w-full md:w-1/2">
+            <a href="fuego.html">
+              <img src="../static/img/elementos/fuego.png" alt="Gremio del Fuego" class="w-full h-72 object-cover rounded-xl transform transition-transform duration-300 hover:scale-105">
+            </a>
+          </div>
+        </div>
+
+        <!-- Gremio de la Tierra -->
+        <div class="flex flex-col md:flex-row-reverse items-center justify-between gap-10">
+          <div class="w-full md:w-1/2 text-left">
+            <h4 class="text-2xl font-semibold text-green-700">
+              <a href="tierra.html" class="hover:underline">🌍 Gremio de la Tierra</a>
+            </h4>
+            <p class="text-lg text-green-800 mt-4">Fuerza, estabilidad y conexión con la naturaleza. El gremio que te enseña a encontrar el equilibrio y la paz en la tierra que pisas.</p>
+          </div>
+          <div class="w-full md:w-1/2">
+            <a href="tierra.html">
+              <img src="../static/img/elementos/tierra.png" alt="Gremio de la Tierra" class="w-full h-72 object-cover rounded-xl transform transition-transform duration-300 hover:scale-105">
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CALENDARIO -->
+  <section id="actividades" class="py-16 bg-gray-100">
+    <div class="max-w-5xl mx-auto px-4">
+      <h3 class="text-3xl font-bold mb-6 text-center text-gray-800">Calendario de Actividades</h3>
+      <div class="overflow-x-auto">
+        <table class="w-full table-auto bg-white shadow-md rounded-xl overflow-hidden">
+          <thead class="bg-blue-600 text-white">
+            <tr>
+              <th class="py-3 px-4 text-left">Fecha</th>
+              <th class="py-3 px-4 text-left">Actividad</th>
+              <th class="py-3 px-4 text-left">Gremio</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b">
+              <td class="py-3 px-4">10/04/2025</td>
+              <td class="py-3 px-4">Excursión al bosque</td>
+              <td class="py-3 px-4">Tierra</td>
+            </tr>
+            <tr class="border-b bg-gray-50">
+              <td class="py-3 px-4">15/04/2025</td>
+              <td class="py-3 px-4">Juegos acuáticos</td>
+              <td class="py-3 px-4">Agua</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-3 px-4">20/04/2025</td>
+              <td class="py-3 px-4">Taller de cometas</td>
+              <td class="py-3 px-4">Aire</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4">25/04/2025</td>
+              <td class="py-3 px-4">Gymkhana deportiva</td>
+              <td class="py-3 px-4">Fuego</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Collage de fotos de actividades -->
+  <section class="py-16 bg-blue-100">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <h3 class="text-3xl font-bold mb-10 text-blue-900">Momentos Inolvidables</h3>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <img src="../static/img/todas/fogata.png" alt="Actividad 1" class="rounded-xl shadow hover:scale-105 transition duration-300">
+        <img src="../static/img/todas/gymkhana.png" alt="Actividad 2" class="rounded-xl shadow hover:scale-105 transition duration-300">
+        <img src="../static/img/todas/familia_agua.png" alt="Actividad 3" class="rounded-xl shadow hover:scale-105 transition duration-300">
+        <img src="../static/img/todas/excursion.png" alt="Actividad 4" class="rounded-xl shadow hover:scale-105 transition duration-300">
+        <img src="../static/img/todas/natacion.png" alt="Actividad 5" class="rounded-xl shadow hover:scale-105 transition duration-300 hidden md:block">
+        <img src="../static/img/todas/juego1.png" alt="Actividad 6" class="rounded-xl shadow hover:scale-105 transition duration-300 hidden md:block">
+        <img src="../static/img/todas/campamento.png" alt="Actividad 7" class="rounded-xl shadow hover:scale-105 transition duration-300 hidden md:block">
+        <img src="../static/img/todas/senderismo.png" alt="Actividad 8" class="rounded-xl shadow hover:scale-105 transition duration-300 hidden md:block">
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonios -->
+  <section class="py-16 bg-blue-50">
+    <div class="max-w-6xl mx-auto text-center">
+      <h3 class="text-3xl font-bold mb-6 text-blue-900">Lo que dicen de nosotros</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="w-full p-4">
+          <div class="bg-white shadow-lg rounded-lg p-6">
+            <p class="text-lg text-gray-700 italic">"Un lugar increíble donde los niños no solo aprenden, sino que también se divierten mucho. ¡Un ambiente seguro y lleno de aventuras!"</p>
+            <p class="mt-4 font-semibold text-blue-800">Laura Martínez</p>
+            <p class="text-gray-600">Madre de un miembro</p>
+          </div>
+        </div>
+        <div class="w-full p-4">
+          <div class="bg-white shadow-lg rounded-lg p-6">
+            <p class="text-lg text-gray-700 italic">"Mis hijos siempre están emocionados por las actividades del club. ¡Es el mejor lugar para su desarrollo!"</p>
+            <p class="mt-4 font-semibold text-blue-800">Carlos Gómez</p>
+            <p class="text-gray-600">Padre de dos miembros</p>
+          </div>
+        </div>
+        <div class="w-full p-4">
+          <div class="bg-white shadow-lg rounded-lg p-6">
+            <p class="text-lg text-gray-700 italic">"El Club de Esplai ha sido una experiencia increíble para mi hija. Ha hecho nuevos amigos y se ha vuelto mucho más segura de sí misma."</p>
+            <p class="mt-4 font-semibold text-blue-800">Ana Rodríguez</p>
+            <p class="text-gray-600">Madre de una miembro</p>
+          </div>
+        </div>
+        <div class="w-full p-4">
+          <div class="bg-white shadow-lg rounded-lg p-6">
+            <p class="text-lg text-gray-700 italic">"Gracias al Club de Esplai, mi hijo ha aprendido a valorar la naturaleza y a trabajar en equipo. ¡Recomiendo totalmente este lugar!"</p>
+            <p class="mt-4 font-semibold text-blue-800">José López</p>
+            <p class="text-gray-600">Padre de un miembro</p>
+          </div>
+        </div>
+        <div class="w-full p-4">
+          <div class="bg-white shadow-lg rounded-lg p-6">
+            <p class="text-lg text-gray-700 italic">"Mi hija ha crecido tanto en el club. No solo aprende sobre la naturaleza, sino que también mejora sus habilidades sociales y emocionales."</p>
+            <p class="mt-4 font-semibold text-blue-800">María Fernández</p>
+            <p class="text-gray-600">Madre de una miembro</p>
+          </div>
+        </div>
+        <div class="w-full p-4">
+          <div class="bg-white shadow-lg rounded-lg p-6">
+            <p class="text-lg text-gray-700 italic">"El ambiente es muy acogedor y las actividades están diseñadas de forma que tanto niños como adultos disfrutamos mucho. ¡Una experiencia única!"</p>
+            <p class="mt-4 font-semibold text-blue-800">Pedro Martín</p>
+            <p class="text-gray-600">Voluntario y padre de un miembro</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h3 class="text-3xl font-bold mb-6 text-gray-800">Contacto</h3>
+      <p class="mb-4">¿Tienes preguntas? ¡Estamos aquí para ayudarte!</p>
+      <div class="flex flex-wrap justify-center gap-6">
+        <div class="flex items-center">
+          <span class="mr-2">📍</span>
+          <p class="text-gray-700">Calle del Esplai, 123, Palma</p>
+        </div>
+        <div class="flex items-center">
+          <span class="mr-2">📞</span>
+          <p class="text-gray-700">123 456 789</p>
+        </div>
+        <div class="flex items-center">
+          <span class="mr-2">📧</span>
+          <p class="text-gray-700">info@clubesplai.org</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer class="bg-blue-600 text-white py-6">
+    <div class="max-w-6xl mx-auto px-4 text-center text-sm flex items-center justify-between">
+      <p>© 2025 Elemental Club. Todos los derechos reservados.</p>
+      <div class="flex gap-6">
+        <a href="https://www.facebook.com/clubesplai" class="text-white hover:text-blue-300 flex items-center space-x-2">
+          <span>📘</span>
+          <span>Facebook</span>
+        </a>
+        <a href="https://www.instagram.com/clubesplai" class="text-white hover:text-blue-300 flex items-center space-x-2">
+          <span>📸</span>
+          <span>Instagram</span>
+        </a>
+        <a href="https://twitter.com/clubesplai" class="text-white hover:text-blue-300 flex items-center space-x-2">
+          <span>🐦</span>
+          <span>Twitter</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+
+
+</body>
+
+</html>
