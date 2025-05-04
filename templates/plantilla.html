@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='img/logo.png') }}" type="image/png"/>
+      <title>{% block title %}{% endblock %}</title>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+<nav class="" style="position: relative; z-index: 1000;">
+    <div class="nav-container">
+        <div class="logo">
+            <a href="/">Gremio</a>
+        </div>
+        <ul class="menu">
+            <li><a href="{{ url_for('index') }}">Página principal</a></li>
+            <li>
+                <a href="#">Listado de Gremio</a>
+                <ul class="submenu">
+                    <li><a href="{{ url_for('agua') }}">Gremio de Agua</a></li>
+                    <li><a href="{{ url_for('aire') }}">Gremio de Aire</a></li>
+                    <li><a href="{{ url_for('fuego') }}">Gremio de Fuego</a></li>
+                    <li><a href="{{ url_for('tierra') }}">Gremio de Tierra</a></li>
+                </ul>
+            </li>
+            <li><a href="{{ url_for('contacto') }}">Contacto</a></li>
+            <li><a href="/register">Registro</a></li>
+            <li><a href="/login">Login</a></li>
+        </ul>
+    </div>
+</nav>
+
+{% block content %}
+
+{% endblock %}
+
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-links">
+            <a href="/">Página principal</a>
+            <a href="/gremios">Listado de Gremio</a>
+            <a href="/contacto">Contacto</a>
+            <a href="/register">Registro</a>
+            <a href="/login">Login</a>
+        </div>
+        <div class="footer-socials">
+            <a href="https://facebook.com" target="_blank"><img
+                    src="{{ url_for('static', filename='img/facebook.png') }}">Facebook</a>
+            <a href="https://twitter.com" target="_blank"><img
+                    src="{{ url_for('static', filename='img/logotipos.png') }}">X</a>
+            <a href="https://instagram.com" target="_blank"><img
+                    src="{{ url_for('static', filename='img/instagram.png') }}">Instagram</a>
+        </div>
+        <p class="footer-copy">© 2025 Gremio. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+</body>
+</html>

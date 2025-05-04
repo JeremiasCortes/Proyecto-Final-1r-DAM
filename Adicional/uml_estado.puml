@@ -1,0 +1,7 @@
+@startuml
+[*] --> Abierta : Creación de actividad
+Abierta --> Cerrada : Cupo completo
+Abierta --> Cancelada : Cancelación manual
+Cerrada --> Cancelada : Cancelación manual
+Cancelada --> [*]
+@enduml

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gremio del Fuego | Elemental Club</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="../static/img/logo.png" type="image/png" />
+  <style>
+    @keyframes changeBackground {
+      0% {
+        background-image: url('../static/img/fuego/acampar.png');
+      }
+      20% {
+        background-image: url('../static/img/fuego/cocinar.png');
+      }
+      40% {
+        background-image: url('../static/img/fuego/fogata.png');
+      }
+      60% {
+        background-image: url('../static/img/fuego/hero.png');
+      }
+      80% {
+        background-image: url('../static/img/fuego/seguridad.png');
+      }
+      100% {
+        background-image: url('../static/img/fuego/senderismo.png');
+      }
+    }
+
+    .hero {
+      background-size: cover;
+      background-position: center;
+      animation: changeBackground 30s infinite;
+    }
+  </style>
+
+</head>
+
+<body class="bg-red-50 text-red-900 font-sans">
+
+  <!-- NAVBAR -->
+  <header class="bg-white shadow-md sticky top-0 z-50 w-full">
+    <div class="max-w-full mx-auto px-8 py-6 flex items-center justify-between">
+      <a href="index.html" class="flex items-center space-x-3">
+        <img src="../static/img/logo.png" alt="Logo Elemental Club" class="h-10 w-10 object-contain">
+        <h1 class="text-2xl font-bold text-red-700">Elemental Club</h1>
+      </a>
+      <nav class="flex space-x-6">
+        <a href="{{ url_for('index') }}" class="text-gray-700 hover:text-green-600 transition">Inicio</a>
+        <a href="#comparativa" class="text-gray-700 hover:text-red-600 transition">Gremios</a>
+        <a href="#actividades" class="text-gray-700 hover:text-red-600 transition">Actividades</a>
+        <a href="#contacto" class="text-gray-700 hover:text-red-600 transition">Contacto</a>
+      </nav>
+      <a href="/login" class="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded-full shadow transition duration-300">
+        Iniciar sesión / Registrarse
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="relative h-[80vh] flex items-center justify-center hero">
+    <div class="bg-red-900 bg-opacity-60 p-10 rounded-xl text-center text-white">
+      <h2 class="text-5xl font-bold mb-6">Gremio del Fuego</h2>
+      <p class="text-lg md:text-xl">Pasión, energía y acción en cada paso.</p>
+    </div>
+  </section>
+
+  <!-- DESCRIPCIÓN -->
+  <section class="py-20 px-6 max-w-4xl mx-auto text-center">
+    <h3 class="text-4xl font-bold text-red-800 mb-6">Explora el poder del fuego</h3>
+    <p class="text-lg text-red-700">
+      El Gremio del Fuego representa la pasión, la creatividad y el entusiasmo. Aquí los jóvenes exploran actividades
+      que encienden la imaginación: cocina, juegos de acción y fogatas inolvidables. Siempre con responsabilidad y en un
+      entorno seguro.
+    </p>
+  </section>
+
+  <!-- ICONOS -->
+  <section class="bg-white py-20" id="iconos">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <h3 class="text-4xl font-bold mb-12 text-red-800">Símbolos del Fuego</h3>
+      <div class="flex flex-wrap justify-center gap-14 text-red-600 text-6xl">
+        <div class="icon">
+          <span>🔥</span>
+          <p class="mt-4 text-lg text-red-800">Pasión</p>
+        </div>
+        <div class="icon">
+          <span>🍳</span>
+          <p class="mt-4 text-lg text-red-800">Cocina</p>
+        </div>
+        <div class="icon">
+          <span>🏕️</span>
+          <p class="mt-4 text-lg text-red-800">Aventura</p>
+        </div>
+        <div class="icon">
+          <span>🧯</span>
+          <p class="mt-4 text-lg text-red-800">Seguridad</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACTIVIDADES -->
+  <section class="py-20 bg-gradient-to-r from-red-50 via-red-100 to-white" id="actividades">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <h3 class="text-4xl font-bold text-red-800 mb-12">Actividades del Gremio del Fuego</h3>
+      <div class="space-y-16">
+        <!-- Actividad 1 (Texto a la izquierda, imagen a la derecha) -->
+        <div class="flex flex-col md:flex-row items-center justify-between gap-10">
+          <div class="w-full md:w-1/2 text-left">
+            <h4 class="text-2xl font-semibold text-red-700">🔥 Cocina al aire libre</h4>
+            <p class="text-lg text-red-800 mt-4">Disfruta de la cocina al aire libre y aprende a preparar deliciosos platillos usando fogatas y parrillas.</p>
+          </div>
+          <div class="w-full md:w-1/2">
+            <img src="../static/img/fuego/cocinar.png" alt="Cocina al aire libre" class="w-full h-64 object-cover rounded-xl">
+          </div>
+        </div>
+
+        <!-- Actividad 2 (Texto a la derecha, imagen a la izquierda) -->
+        <div class="flex flex-col md:flex-row-reverse items-center justify-between gap-10">
+          <div class="w-full md:w-1/2 text-left">
+            <h4 class="text-2xl font-semibold text-red-700">🔥 Fogatas y juegos nocturnos</h4>
+            <p class="text-lg text-red-800 mt-4">Las fogatas son el momento perfecto para compartir historias y jugar bajo las estrellas.</p>
+          </div>
+          <div class="w-full md:w-1/2">
+            <img src="../static/img/fuego/fogata.png" alt="Fogatas y juegos nocturnos" class="w-full h-64 object-cover rounded-xl">
+          </div>
+        </div>
+
+        <!-- Actividad 3 (Texto a la izquierda, imagen a la derecha) -->
+        <div class="flex flex-col md:flex-row items-center justify-between gap-10">
+          <div class="w-full md:w-1/2 text-left">
+            <h4 class="text-2xl font-semibold text-red-700">🔥 Gymkhanas y desafíos</h4>
+            <p class="text-lg text-red-800 mt-4">Divertidos juegos y desafíos en equipo para poner a prueba nuestras habilidades.</p>
+          </div>
+          <div class="w-full md:w-1/2">
+            <img src="../static/img/fuego/gymkhana.png" alt="Gymkhanas y desafíos" class="w-full h-64 object-cover rounded-xl">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIOS -->
+  <section class="bg-gradient-to-r from-red-100 to-white py-20">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <h3 class="text-4xl font-bold mb-12 text-red-800">Lo que dicen nuestros miembros</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div class="bg-red-100 rounded-xl p-8 shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl duration-300">
+          <p class="italic">“¡Nunca imaginé que cocinar al aire libre sería tan divertido!”</p>
+          <p class="mt-4 font-semibold text-red-700">— Lucía, 10 años</p>
+          <img src="../static/img/fuego/cocinar.png" alt="Niña cocinando al aire libre" class="w-full mt-4 rounded-lg">
+        </div>
+        <div class="bg-red-100 rounded-xl p-8 shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl duration-300">
+          <p class="italic">“Las fogatas me enseñaron a compartir y respetar el fuego.”</p>
+          <p class="mt-4 font-semibold text-red-700">— Dani, 12 años</p>
+          <img src="../static/img/fuego/fogata.png" alt="Niño junto a fogata" class="w-full mt-4 rounded-lg">
+        </div>
+        <div class="bg-red-100 rounded-xl p-8 shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl duration-300">
+          <p class="italic">“El Gremio del Fuego es donde más he aprendido jugando.”</p>
+          <p class="mt-4 font-semibold text-red-700">— Paula, madre</p>
+          <img src="../static/img/fuego/acampar.png" alt="Familia acampando" class="w-full mt-4 rounded-lg">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-red-50 py-20" id="faq">
+    <div class="max-w-4xl mx-auto px-6">
+      <h3 class="text-4xl font-bold text-red-800 mb-10 text-center">Preguntas Frecuentes</h3>
+      <div class="space-y-8">
+        <div>
+          <h4 class="font-bold text-red-700">¿Es seguro para niños participar en actividades con fuego?</h4>
+          <p class="text-red-900">Sí, siempre bajo supervisión de monitores formados y con medidas de seguridad activas.</p>
+        </div>
+        <div>
+          <h4 class="font-bold text-red-700">¿Qué tipo de ropa deben llevar?</h4>
+          <p class="text-red-900">Ropa cómoda, resistente y de preferencia de algodón. Evitar prendas sintéticas cerca del fuego.</p>
+        </div>
+        <div>
+          <h4 class="font-bold text-red-700">¿Pueden participar niños de todas las edades?</h4>
+          <p class="text-red-900">El Gremio del Fuego está orientado a participantes de 8 años en adelante.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- INFOGRAFÍA -->
+  <section id="comparativa" class="bg-gradient-to-br from-red-200 to-white py-20">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <h3 class="text-4xl font-bold mb-12 text-red-800">Comparativa entre Gremios</h3>
+      <div class="overflow-hidden">
+        <table class="w-full table-auto text-left">
+          <thead>
+            <tr class="bg-red-600 text-white">
+              <th class="px-6 py-4">Elemento</th>
+              <th class="px-6 py-4">Actividades</th>
+              <th class="px-6 py-4">Valores</th>
+            </tr>
+          </thead>
+          <tbody class="bg-white text-red-800">
+            <tr class="border-b transform hover:scale-105 transition-all duration-300">
+              <td class="px-6 py-4">
+                <a href="fuego.html" class="block">Fuego</a>
+              </td>
+              <td class="px-6 py-4">
+                <a href="fuego.html" class="block">Cocina, fogatas, gymkhanas</a>
+              </td>
+              <td class="px-6 py-4">
+                <a href="fuego.html" class="block">Energía, responsabilidad</a>
+              </td>
+            </tr>
+            <tr class="border-b bg-red-50 transform hover:scale-105 transition-all duration-300">
+              <td class="px-6 py-4">
+                <a href="agua.html" class="block">Agua</a>
+              </td>
+              <td class="px-6 py-4">
+                <a href="agua.html" class="block">Juegos acuáticos, natación</a>
+              </td>
+              <td class="px-6 py-4">
+                <a href="agua.html" class="block">Calma, adaptabilidad</a>
+              </td>
+            </tr>
+            <tr class="border-b transform hover:scale-105 transition-all duration-300">
+              <td class="px-6 py-4">
+                <a href="tierra.html" class="block">Tierra</a>
+              </td>
+              <td class="px-6 py-4">
+                <a href="tierra.html" class="block">Excursiones, huerto</a>
+              </td>
+              <td class="px-6 py-4">
+                <a href="tierra.html" class="block">Paciencia, conexión natural</a>
+              </td>
+            </tr>
+            <tr class="bg-red-50 transform hover:scale-105 transition-all duration-300">
+              <td class="px-6 py-4">
+                <a href="aire.html" class="block">Aire</a>
+              </td>
+              <td class="px-6 py-4">
+                <a href="aire.html" class="block">Cometas, pensamiento creativo</a>
+              </td>
+              <td class="px-6 py-4">
+                <a href="aire.html" class="block">Libertad, imaginación</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- NIVELES DEL GREMIO -->
+  <section class="bg-white py-20">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <h3 class="text-4xl font-bold mb-12 text-red-800">Niveles del Gremio del Fuego</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div class="bg-red-100 p-8 rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
+          <h4 class="text-2xl font-semibold text-red-700 mb-4">🔥 Aprendiz de Fuego</h4>
+          <p>Primeros pasos con actividades guiadas y aprendizaje básico.</p>
+        </div>
+        <div class="bg-red-200 p-8 rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
+          <h4 class="text-2xl font-semibold text-red-700 mb-4">🔥🔥 Guardián de la Llama</h4>
+          <p>Conoce las reglas de seguridad, colabora con otros miembros.</p>
+        </div>
+        <div class="bg-red-300 p-8 rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
+          <h4 class="text-2xl font-semibold text-red-700 mb-4">🔥🔥🔥 Maestro Fogatero</h4>
+          <p>Planifica actividades, lidera equipos y difunde la cultura del gremio.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto text-center px-6">
+      <h3 class="text-4xl font-bold mb-6 text-red-800">¿Quieres unirte?</h3>
+      <div class="flex justify-center space-x-6">
+        <p class="mb-2 text-lg text-blue-900">📍 Calle del Esplai, 123, Palma</p>
+        <p class="mb-2 text-lg text-blue-900">📞 Teléfono: 123 456 789</p>
+        <p class="mb-2 text-lg text-blue-900">📧 Email: info@clubesplai.org</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-red-600 text-white py-6">
+    <div class="max-w-6xl mx-auto px-4 text-center text-sm">
+      © 2025 Elemental Club. Todos los derechos reservados.
+    </div>
+  </footer>
+
+</body>
+
+</html>

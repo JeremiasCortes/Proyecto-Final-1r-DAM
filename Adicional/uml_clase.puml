@@ -1,0 +1,32 @@
+@startuml
+class User {
+    + id: Integer
+    + name_user: String
+    + nombre: String
+    + apellido1: String
+    + apellido2: String
+    + email: String
+    + dni: String
+    + contraseña: String
+    + monedero: Decimal
+}
+
+class Actividad {
+    + id: Integer
+    + nombre: String
+    + fecha: String
+    + lugar: String
+    + cupo: Integer
+    + inscritos: Integer
+    + estado: String
+}
+
+class Inscripcion {
+    + id: Integer
+    + actividad_id: Integer
+    + usuario: String
+}
+
+User "1" --> "*" Inscripcion : realiza
+Actividad "1" --> "*" Inscripcion : tiene
+@enduml

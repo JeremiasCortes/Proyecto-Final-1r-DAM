@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tablón de Actividades</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+<div class="flex">
+    <aside class="w-64 bg-violet-700 text-white min-h-screen p-6">
+        <div class="mb-8">
+            <h1 class="text-2xl font-bold">Elemental Club</h1>
+            <p class="text-sm mt-2">Calendario de actividades</p>
+        </div>
+        <nav>
+            <ul>
+                <li class="mb-4"><a href="#" class="font-semibold">Actividades</a></li>
+                <li class="mb-4"><a href="{{ url_for('minijuego') }}" class="hover:underline">Ganar dinero</a></li>
+                <li class="mb-4"><a href="{{ url_for('index') }}" class="hover:underline">Volver a inicio</a></li>
+            </ul>
+        </nav>
+    </aside>
+    <main class="flex-1 p-10">
+        <div class="flex justify-between items-center mb-6">
+            <a href="{{ url_for('crear_actividad') }}">
+                <button class="bg-violet-700 text-white px-4 py-2 rounded hover:bg-violet-800">Nueva actividad</button>
+            </a>
+        </div>
+        <div class="bg-white rounded-xl shadow-md overflow-x-auto">
+            <table class="min-w-full text-left">
+                <thead>
+                <tr class="bg-gray-50">
+                    <th class="p-4">Actividad</th>
+                    <th class="p-4">Fecha</th>
+                    <th class="p-4">Lugar</th>
+                    <th class="p-4">Cupo</th>
+                    <th class="p-4">Inscritos</th>
+                    <th class="p-4">Estado</th>
+                    <th class="p-4">Acción</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for act in actividades %}
+                <tr class="border-b last:border-none hover:bg-gray-50">
+                    <td class="p-4 font-medium">{{ act.nombre }}</td>
+                    <td class="p-4">{{ act.fecha }}</td>
+                    <td class="p-4">{{ act.lugar }}</td>
+                    <td class="p-4">{{ act.cupo }}</td>
+                    <td class="p-4">{{ act.inscritos }}</td>
+                    <td class="p-4">
+                        {% if act.estado == "Abierta" %}
+                        <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs font-semibold">Abierta</span>
+                        {% else %}
+                        <span class="bg-red-100 text-red-800 px-2 py-1 rounded text-xs font-semibold">Cerrada</span>
+                        {% endif %}
+                    </td>
+                    <td class="p-4">
+                        {% if act.estado == "Abierta" %}
+                        <a href="{{ url_for('inscribir', actividad_id=act.id) }}">
+                            <button class="bg-violet-600 text-white px-3 py-1 rounded hover:bg-violet-700 text-sm">
+                                Inscribirse
+                            </button>
+                        </a>
+                        {% else %}
+                        <button class="bg-gray-300 text-gray-500 px-3 py-1 rounded text-sm cursor-not-allowed" disabled>
+                            Cerrada
+                        </button>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </main>
+</div>
+</body>
+</html>

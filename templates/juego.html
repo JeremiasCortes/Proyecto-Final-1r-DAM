@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Idle Clicker Tycoon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('static', filename='css/output.css') }}" rel="stylesheet">
+
+
+</head>
+<body class="bg-hipno min-h-screen from-violet-200 to-fuchsia-100 min-h-screen flex flex-col">
+
+<header class="bg-violet-700 text-white flex items-center justify-between px-8 py-4 shadow-md">
+    <div class="flex items-center gap-3">
+        <span class="text-2xl font-bold">💎 Idle Clicker Tycoon</span>
+        <span class="ml-4 text-sm bg-white/20 px-3 py-1 rounded-full">v1.0</span>
+    </div>
+    <div class="flex items-center gap-6">
+        <a href="">
+            <button id="saveBtn"
+                    class="bg-fuchsia-500 hover:bg-fuchsia-600 px-4 py-2 rounded-lg font-semibold transition">Guardar 💾
+            </button>
+        </a>
+    </div>
+    <div class="flex items-center gap-6">
+        <span class="text-lg">Dinero: <span id="money" class="font-mono font-bold">0</span> 💰</span>
+        <button id="toggleShop"
+                class="bg-fuchsia-500 hover:bg-fuchsia-600 px-4 py-2 rounded-lg font-semibold transition">Tienda 🛒
+        </button>
+    </div>
+</header>
+
+<main class="flex flex-1 overflow-hidden">
+    <aside id="shopPanel"
+           class="w-80 bg-white shadow-xl border-r border-violet-100 p-6 transition-transform duration-300 -translate-x-full z-10 fixed md:static md:translate-x-0 h-full md:h-auto">
+        <h2 class="text-xl font-bold mb-4 text-violet-700">Tienda</h2>
+        <ul>
+            <li class="mb-5">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <div class="font-semibold">Mejora de Click (+1💰/click)</div>
+                        <div class="text-sm text-gray-500">Aumenta el dinero por click</div>
+                    </div>
+                    <button onclick="buyUpgrade('click')"
+                            class="bg-violet-600 hover:bg-violet-700 text-white px-3 py-1 rounded transition text-sm"
+                            id="buyClickBtn">
+                        Comprar<br><span id="clickUpgradeCost">10</span>💰
+                    </button>
+                </div>
+            </li>
+            <li class="mb-5">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <div class="font-semibold">Idle (+1💰/s)</div>
+                        <div class="text-sm text-gray-500">Gana dinero cada segundo</div>
+                    </div>
+                    <button onclick="buyUpgrade('idle')"
+                            class="bg-fuchsia-500 hover:bg-fuchsia-600 text-white px-3 py-1 rounded transition text-sm"
+                            id="buyIdleBtn">
+                        Comprar<br><span id="idleUpgradeCost">25</span>💰
+                    </button>
+                </div>
+            </li>
+            <li>
+                <div class="flex items-center justify-between">
+                    <div>
+                        <div class="font-semibold">AutoClicker (+5💰/s)</div>
+                        <div class="text-sm text-gray-500">¡Automatiza tus clicks!</div>
+                    </div>
+                    <button onclick="buyUpgrade('autoclicker')"
+                            class="bg-amber-500 hover:bg-amber-600 text-white px-3 py-1 rounded transition text-sm"
+                            id="buyAutoBtn">
+                        Comprar<br><span id="autoUpgradeCost">200</span>💰
+                    </button>
+                </div>
+            </li>
+        </ul>
+        <button id="closeShop"
+                class="mt-8 w-full bg-gray-200 hover:bg-gray-300 text-violet-700 px-4 py-2 rounded-lg font-semibold transition md:hidden">
+            Cerrar tienda
+        </button>
+    </aside>
+
+    <section class="flex-1 flex flex-col items-center justify-center relative">
+        <div class="flex flex-col items-center mt-0">
+            <button id="clickerBtn"
+                    class="group relative w-44 h-44 rounded-full bg-gradient-to-br from-fuchsia-400 to-violet-600 shadow-2xl border-8 border-fuchsia-200 flex items-center justify-center text-5xl font-extrabold text-white hover:scale-105 active:scale-95 transition-all outline-none focus:ring-4 focus:ring-fuchsia-400">
+                💎
+                <span class="absolute -bottom-7 left-1/2 -translate-x-1/2 bg-white/80 text-fuchsia-700 text-base font-semibold px-4 py-1 rounded-full shadow">Haz click aquí</span>
+            </button>
+            <div class="mt-8 flex gap-8">
+                <div class="bg-white/80 rounded-lg px-6 py-3 shadow text-center">
+                    <div class="text-xs text-gray-500">💰/click</div>
+                    <div id="perClick" class="text-xl font-bold text-violet-700">1</div>
+                </div>
+                <div class="bg-white/80 rounded-lg px-6 py-3 shadow text-center">
+                    <div class="text-xs text-gray-500">💰/segundos</div>
+                    <div id="perSecond" class="text-xl font-bold text-fuchsia-700">0</div>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-28 left-1/2 -translate-x-1/2 bg-white/90 rounded-xl shadow-lg px-10 py-4 flex gap-12">
+            <div>
+                <div class="text-xs text-gray-500">Total ganado</div>
+                <div id="totalEarned" class="font-bold text-lg text-amber-600">0</div>
+            </div>
+            <div>
+                <div class="text-xs text-gray-500">Mejoras compradas</div>
+                <div id="upgradesBought" class="font-bold text-lg text-violet-600">0</div>
+            </div>
+        </div>
+    </section>
+</main>
+<script src="{{ url_for('static', filename='js/script.js') }}">
+
+</script>
+
+</body>
+</html>

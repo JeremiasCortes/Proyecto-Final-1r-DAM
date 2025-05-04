@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Inscribirse a Actividad</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-6">
+<div class="bg-white rounded-xl shadow-lg max-w-md w-full p-8">
+    <h1 class="text-2xl font-bold mb-6 text-violet-700">Inscribirse a la actividad</h1>
+    <div class="mb-6 border border-gray-200 rounded-lg p-4 bg-gray-50">
+        <h2 class="text-xl font-semibold mb-2">{{ actividad.nombre }}</h2>
+        <p><strong>Fecha:</strong> {{ actividad.fecha }}</p>
+        <p><strong>Lugar:</strong> {{ actividad.lugar }}</p>
+        <p><strong>Cupo:</strong> {{ actividad.cupo }}</p>
+        <p><strong>Inscritos:</strong> {{ actividad.inscritos }}</p>
+        <p><strong>Estado:</strong>
+            <span
+                    class="px-2 py-1 rounded text-xs font-semibold {{ 'bg-green-100 text-green-800' if actividad.estado == 'Abierta' else 'bg-red-100 text-red-800' }}">
+          {{ actividad.estado }}
+        </span>
+        </p>
+    </div>
+    {% if actividad.estado == 'Abierta' and actividad.inscritos < actividad.cupo %}
+    <form action="{{ url_for('inscribir', actividad_id=actividad.id) }}" method="POST" class="space-y-4">
+        <div>
+            <label for="usuario" class="block text-gray-700 font-semibold mb-1">Usuario</label>
+            <input type="text" id="usuario" name="usuario" required placeholder="Tu nombre o cuenta"
+                   class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-violet-500"/>
+        </div>
+        <button type="submit"
+                class="w-full bg-fuchsia-600 hover:bg-fuchsia-700 text-white font-bold py-3 rounded-md transition">
+            Inscribirse
+        </button>
+    </form>
+    {% else %}
+    <p class="text-center text-red-600 font-semibold">No es posible inscribirse en esta actividad.</p>
+    {% endif %}
+</div>
+</body>
+</html>

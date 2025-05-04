@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-white flex items-center justify-center">
+<div class="flex w-full max-w-6xl shadow-lg rounded-lg overflow-hidden">
+    <!-- Left Side - Login Form -->
+    <div class="w-full md:w-1/2 p-8 bg-white">
+        <h1 class="text-3xl font-bold text-orange-600 mb-4">Elemental Esplay</h1>
+        <h2 class="text-xl font-semibold mb-2">Login</h2>
+        <p class="text-sm mb-6">Sin cuenta? <a href="/register" class="text-orange-500 hover:underline">Registrarse</a></p>
+        {% if error_login %}
+            <strong class="font-bold">Error:</strong>
+            <span class="block sm:inline">Usuario o contraseña incorrectos.</span>
+            <br><br>
+        {% endif %}
+
+        <form class="space-y-4" action="/comprobar_user" method="POST">
+            <div>
+                <label class="block text-sm font-medium">Nombre de usuario</label>
+                <input type="text" name="name_user" maxlength="16" required class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-400" />
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium">Contraseña</label>
+                <input type="password" name="contraseña" maxlength="8" required class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-orange-400" />
+            </div>
+
+            <button class="w-full bg-orange-500 text-white py-2 rounded-md hover:bg-orange-600 transition">Iniciar sesion</button>
+
+        </form>
+
+        <p class="text-xs text-gray-500 mt-6">© 2019 Elemental Esplay, LLC. All rights reserved.</p>
+        <div class="text-xs text-gray-500 space-x-4">
+            <a href="#" class="hover:underline">Terms of Service</a>
+            <a href="#" class="hover:underline">Privacy Policy</a>
+        </div>
+    </div>
+
+    <!-- Right Side - Image / Illustration -->
+    <div class="hidden md:block w-1/2 bg-cover bg-center">
+        <!-- Background image goes here -->
+        <img src='static/elementos.jpg'></img>
+    </div>
+</div>
+</body>
+</html>

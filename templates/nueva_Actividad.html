@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Añadir Actividad</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-6">
+<div class="bg-white rounded-xl shadow-lg max-w-lg w-full p-8">
+    <h1 class="text-2xl font-bold mb-6 text-violet-700">Añadir nueva actividad</h1>
+    <form action="{{ url_for('crear_actividad') }}" method="POST" class="space-y-5">
+        <div>
+            <label for="nombre" class="block text-gray-700 font-semibold mb-1">Nombre de la actividad</label>
+            <input type="text" id="nombre" name="nombre" required placeholder="Ej: Taller de fotografía"
+                   class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-violet-500"/>
+        </div>
+        <div>
+            <label for="fecha" class="block text-gray-700 font-semibold mb-1">Fecha</label>
+            <input type="date" id="fecha" name="fecha" required
+                   class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-violet-500"/>
+        </div>
+        <div>
+            <label for="lugar" class="block text-gray-700 font-semibold mb-1">Lugar</label>
+            <input type="text" id="lugar" name="lugar" required placeholder="Ej: Aula 101"
+                   class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-violet-500"/>
+        </div>
+        <div>
+            <label for="cupo" class="block text-gray-700 font-semibold mb-1">Cupo máximo</label>
+            <input type="number" id="cupo" name="cupo" min="1" required placeholder="Ej: 30"
+                   class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-violet-500"/>
+        </div>
+        <div>
+            <label for="estado" class="block text-gray-700 font-semibold mb-1">Estado</label>
+            <select id="estado" name="estado" required
+                    class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-violet-500">
+                <option value="Abierta" selected>Abierta</option>
+                <option value="Cerrada">Cerrada</option>
+            </select>
+        </div>
+        <button type="submit"
+                class="w-full bg-violet-700 hover:bg-violet-800 text-white font-bold py-3 rounded-md transition">Crear
+            actividad
+        </button>
+    </form>
+</div>
+</body>
+</html>
